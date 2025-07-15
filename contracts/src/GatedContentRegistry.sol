@@ -65,11 +65,11 @@ contract GatedContentRegistry is
         Content memory c = contents[contentId];
         require(
             c.creator == viewer ||
-                (c.membershipNFT != address(0) &&
-                    IMembershipNFT(c.membershipNFT).isMember(
-                        viewer,
-                        c.requiredTier
-                    )),
+                c.membershipNFT == address(0) ||
+                IMembershipNFT(c.membershipNFT).isMember(
+                    viewer,
+                    c.requiredTier
+                ),
             "No access"
         );
         return c.encryptedURI;
