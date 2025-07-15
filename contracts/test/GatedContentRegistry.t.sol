@@ -9,8 +9,8 @@ import {ERC1967Proxy} from "@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.s
 contract MockMembershipNFT {
     mapping(address => mapping(uint256 => bool)) private _members;
     
-    function setMember(address user, uint256 tierId, bool isMember) external {
-        _members[user][tierId] = isMember;
+    function setMemberStatus(address user, uint256 tierId, bool memberStatus) external {
+        _members[user][tierId] = memberStatus;
     }
     
     function isMember(address user, uint256 tierId) external view returns (bool) {
@@ -112,7 +112,7 @@ contract GatedContentRegistryTest is Test {
         registry.publishContent(encryptedURI, address(mockMembership), requiredTier);
         
         // Set viewer as member of required tier
-        mockMembership.setMember(viewer, requiredTier, true);
+        mockMembership.setMemberStatus(viewer, requiredTier, true);
         
         vm.prank(viewer);
         string memory retrievedURI = registry.getContentURI(viewer, 0);
@@ -128,7 +128,7 @@ contract GatedContentRegistryTest is Test {
         registry.publishContent(encryptedURI, address(mockMembership), requiredTier);
         
         // Viewer is not a member
-        mockMembership.setMember(viewer, requiredTier, false);
+        mockMembership.setMemberStatus(viewer, requiredTier, false);
         
         vm.prank(viewer);
         vm.expectRevert("No access");
@@ -155,8 +155,8 @@ contract GatedContentRegistryTest is Test {
         registry.publishContent(encryptedURI, address(mockMembership), requiredTier);
         
         // Set viewer as member of different tier
-        mockMembership.setMember(viewer, 1, true);
-        mockMembership.setMember(viewer, requiredTier, false);
+        mockMembership.setMemberStatus(viewer, 1, true);
+        mockMembership.setMemberStatus(viewer, requiredTier, false);
         
         vm.prank(viewer);
         vm.expectRevert("No access");
