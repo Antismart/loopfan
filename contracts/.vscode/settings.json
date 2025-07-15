@@ -1,0 +1,8 @@
+{
+    "solidity.remappings": [
+        "@openzeppelin/contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/contracts/",
+        "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/"
+    ],
+    "solidity.packageDefaultDependenciesContractsDirectory": "contracts",
+    "solidity.packageDefaultDependenciesDirectory": "lib"
+}
