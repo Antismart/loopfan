@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Wallet, Zap, Shield, TrendingUp, Users, Gift, DollarSign, Globe, Lock, Heart, MessageCircle, Share2, Home } from 'lucide-react'
+import { ArrowRight, Wallet, Zap, Shield, TrendingUp, Users, Gift, DollarSign, Globe, Lock, Heart, MessageCircle, Share2, Home as HomeIcon } from 'lucide-react'
 import Link from 'next/link'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
