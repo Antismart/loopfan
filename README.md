@@ -1,4 +1,4 @@
-# LoopFan 🎯
+    # LoopFan 🎯
 
 **The first truly decentralized creator wallet app** — enabling direct creator-to-fan payments with **zero middlemen**. Built on Base blockchain, LoopFan puts creators in complete control of their earnings through tips, paid content, NFT memberships, and exclusive drops.
 
